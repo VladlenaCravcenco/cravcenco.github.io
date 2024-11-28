@@ -114,21 +114,6 @@ h2 {
 
 /* Цены */
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@400;500&display=swap');
-
-* {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-}
-
-body {
-   background: #EFF7FE;
-   color: #080515;
-   font-family: 'Noto Sans Display', sans-serif;
-   line-height: 1;
-}
-
 .tabs {
    position: relative;
    text-align: center;
