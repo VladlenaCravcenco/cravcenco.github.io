@@ -6,6 +6,10 @@
     --white: #ffffff;
 }
 
+ul{
+    list-style: none;
+}
+
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
@@ -31,6 +35,12 @@ body {
     align-items: center;
     flex-direction: column;
 }
+
+.header-hero{
+    position: inherit;
+    
+}
+
 
 .hero-title {
     font-size: 3rem;
