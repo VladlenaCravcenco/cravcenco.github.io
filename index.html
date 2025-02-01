@@ -5,11 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Design Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../cravcenco.github.io/styles.css">
+    <link rel="stylesheet" href="../cravcenco.github.io/">
 </head>
 <body>
     <div class="container">
-        <!-- Существующие секции (nav, hero, bento-grid, projects) -->
+        <nav>
+            <div class="logo">DesignPort</div>
+            <button class="btn btn-primary">Contact Me</button>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Digital Experiences That Inspire</h1>
+                <p class="subtitle">Web Designer & UI/UX Specialist</p>
+                <button class="btn btn-primary" style="margin-top: 2rem;">View Projects</button>
+            </div>
+            <div class="hero-visual">
+                <div class="bento-item" style="height: 100%; background: var(--light-dark);">
+                    <!-- Здесь можно разместить 3D-аватар или иллюстрацию -->
+                </div>
+            </div>
+        </section>
+
+        <div class="bento-grid">
+            <div class="bento-item">
+                <h3>150+ Projects</h3>
+                <p>Successfully delivered digital solutions</p>
+            </div>
+            <div class="bento-item" style="background: linear-gradient(45deg, var(--primary), var(--dark));">
+                <h3>Awards</h3>
+                <p>15+ Design Awards Worldwide</p>
+            </div>
+            <div class="bento-item">
+                <h3>Specialization</h3>
+                <p>Web Design, UX Research, Branding</p>
+            </div>
+        </div>
+
+        <section class="projects">
+            <h2 style="margin-bottom: 2rem;">Featured Projects</h2>
+            <div class="bento-grid">
+                <div class="project-card" style="grid-column: span 2;">
+                    <!-- Контент проекта -->
+                </div>
+                <div class="project-card">
+                    <!-- Контент проекта -->
+                </div>
+            </div>
+        </section>
+
 
         <!-- Новая секция: 3D Projects -->
         <section class="blender-projects">
@@ -72,7 +116,6 @@
             </div>
         </footer>
     </div>
-
 
     <script src="../cravcenco.github.io/index.js"></script>
 </body>
