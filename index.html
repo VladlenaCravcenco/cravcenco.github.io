@@ -9,51 +9,70 @@
 </head>
 <body>
     <div class="container">
-        <nav>
-            <div class="logo">DesignPort</div>
-            <button class="btn btn-primary">Contact Me</button>
-        </nav>
+        <!-- Существующие секции (nav, hero, bento-grid, projects) -->
 
-        <section class="hero">
-            <div class="hero-text">
-                <h1>Digital Experiences That Inspire</h1>
-                <p class="subtitle">Web Designer & UI/UX Specialist</p>
-                <button class="btn btn-primary" style="margin-top: 2rem;">View Projects</button>
-            </div>
-            <div class="hero-visual">
-                <div class="bento-item" style="height: 100%; background: var(--light-dark);">
-                    <!-- Здесь можно разместить 3D-аватар или иллюстрацию -->
+        <!-- Новая секция: 3D Projects -->
+        <section class="blender-projects">
+            <h2>3D Art & Animations</h2>
+            <p class="subtitle">Explore my work in Blender - from modeling to animation</p>
+            <div class="blender-grid">
+                <div class="blender-card">
+                    <div class="blender-card-inner">
+                        <div class="blender-card-front">
+                            <img src="https://via.placeholder.com/400x300" alt="3D Project 1">
+                        </div>
+                        <div class="blender-card-back">
+                            <h3>Project: Neon City</h3>
+                            <p>A futuristic cityscape created in Blender with Cycles rendering.</p>
+                            <button class="btn btn-primary">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="blender-card">
+                    <div class="blender-card-inner">
+                        <div class="blender-card-front">
+                            <img src="https://via.placeholder.com/400x300" alt="3D Project 2">
+                        </div>
+                        <div class="blender-card-back">
+                            <h3>Project: Cyberpunk Character</h3>
+                            <p>A fully rigged and animated character for a game project.</p>
+                            <button class="btn btn-primary">View Details</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <div class="bento-grid">
-            <div class="bento-item">
-                <h3>150+ Projects</h3>
-                <p>Successfully delivered digital solutions</p>
-            </div>
-            <div class="bento-item" style="background: linear-gradient(45deg, var(--primary), var(--dark));">
-                <h3>Awards</h3>
-                <p>15+ Design Awards Worldwide</p>
-            </div>
-            <div class="bento-item">
-                <h3>Specialization</h3>
-                <p>Web Design, UX Research, Branding</p>
-            </div>
-        </div>
-
-        <section class="projects">
-            <h2 style="margin-bottom: 2rem;">Featured Projects</h2>
-            <div class="bento-grid">
-                <div class="project-card" style="grid-column: span 2;">
-                    <!-- Контент проекта -->
+        <!-- Футер -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Let's Create Together</h3>
+                    <p>Feel free to reach out for collaborations or just a friendly chat!</p>
                 </div>
-                <div class="project-card">
-                    <!-- Контент проекта -->
+                <div class="footer-section">
+                    <h3>Contact Me</h3>
+                    <ul class="contact-list">
+                        <li><a href="mailto:example@example.com">example@example.com</a></li>
+                        <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                        <li><a href="https://t.me/yourtelegram" target="_blank">Telegram</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Me</h3>
+                    <div class="social-links">
+                        <a href="https://instagram.com" target="_blank">Instagram</a>
+                        <a href="https://artstation.com" target="_blank">ArtStation</a>
+                        <a href="https://github.com" target="_blank">GitHub</a>
+                    </div>
                 </div>
             </div>
-        </section>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Web Designer Portfolio. All rights reserved.</p>
+            </div>
+        </footer>
     </div>
+
 
     <script src="../cravcenco.github.io/index.js"></script>
 </body>
