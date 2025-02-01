@@ -32,3 +32,29 @@ document.querySelectorAll('.blender-card').forEach(card => {
         card.style.setProperty('--mouse-y', `${y}px`);
     });
 });
+
+// Открытие деталей проекта
+document.querySelectorAll('.view-details').forEach(button => {
+    button.addEventListener('click', () => {
+        const projectId = button.getAttribute('data-project');
+        const details = document.getElementById(`project-details-${projectId}`);
+        details.classList.add('active');
+    });
+});
+
+// Закрытие деталей проекта
+document.querySelectorAll('.close-details').forEach(button => {
+    button.addEventListener('click', () => {
+        const details = button.closest('.project-details');
+        details.classList.remove('active');
+    });
+});
+
+// Закрытие при клике вне блока
+document.querySelectorAll('.project-details').forEach(details => {
+    details.addEventListener('click', (e) => {
+        if (e.target === details) {
+            details.classList.remove('active');
+        }
+    });
+});
