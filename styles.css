@@ -1,139 +1,134 @@
-/* Базовые стили */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
-    --dark-gray: #1c1c1c;
-    --green: #4caf50;
-    --beige: #f5f5dc;
-    --white: #ffffff;
+  --primary: #00ff88;
+  --secondary: #ff6b35;
+  --dark: #0a0a0a;
+  --light-dark: #1a1a1a;
 }
 
 body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: var(--dark-gray);
-    color: var(--beige);
-    line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+  background: var(--dark);
+  color: white;
+  overflow-x: hidden;
 }
 
 .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
-/* Хедер */
+/* Шапка */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Герой секция */
 .hero {
-    height: 100vh;
-    background: linear-gradient(120deg, var(--dark-gray), var(--green));
-    color: var(--white);
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin: 6rem 0;
 }
 
-.hero-title {
-    font-size: 3rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 10px;
-    animation: fadeIn 2s ease-in-out;
+.hero-text h1 {
+  font-size: 4rem;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  background: linear-gradient(45deg, var(--primary), #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.hero-subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+/* Бентo-боксы */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 4rem 0;
 }
 
-.hero-btn {
-    text-decoration: none;
-    color: var(--dark-gray);
-    background-color: var(--beige);
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+.bento-item {
+  background: var(--light-dark);
+  border-radius: 2rem;
+  padding: 2rem;
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
-.hero-btn:hover {
-    background-color: var(--green);
+.bento-item:hover {
+  transform: translateY(-5px);
 }
 
-/* О разделе */
-.about, .portfolio, .contact {
-    padding: 50px 0;
+/* Градиентные кнопки */
+.btn {
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 2.5rem;
-    color: var(--green);
+.btn-primary {
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  background-size: 200% 200%;
+  animation: gradientAnim 5s ease infinite;
 }
 
-.about p {
-    text-align: center;
-    font-size: 1.2rem;
-    color: var(--beige);
-}
-
-/* Портфолио */
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.portfolio-item {
-    background: var(--beige);
-    color: var(--dark-gray);
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.portfolio-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* Контакты */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-form input, form textarea, form button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-form button {
-    background-color: var(--green);
-    color: var(--white);
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-form button:hover {
-    background-color: var(--beige);
-    color: var(--dark-gray);
-}
-
-/* Футер */
-.footer {
-    text-align: center;
-    padding: 20px;
-    background-color: var(--dark-gray);
-    color: var(--beige);
-    font-size: 0.9rem;
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0,255,136,0.3);
 }
 
 /* Анимации */
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
+@keyframes gradientAnim {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Проекты */
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2rem;
+  height: 400px;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, rgba(0,0,0,0.8), transparent);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .hero {
+      grid-template-columns: 1fr;
+  }
+  
+  .bento-grid {
+      grid-template-columns: 1fr;
+  }
 }
