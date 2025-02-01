@@ -33,28 +33,50 @@ document.querySelectorAll('.blender-card').forEach(card => {
     });
 });
 
-// Открытие деталей проекта
+// Открытие модального окна
 document.querySelectorAll('.view-details').forEach(button => {
     button.addEventListener('click', () => {
-        const projectId = button.getAttribute('data-project');
-        const details = document.getElementById(`project-details-${projectId}`);
-        details.classList.add('active');
+        const modal = document.querySelector('.project-details');
+        const title = button.getAttribute('data-title');
+        const description = button.getAttribute('data-description');
+        const images = JSON.parse(button.getAttribute('data-images'));
+        const video = button.getAttribute('data-video');
+        const social = JSON.parse(button.getAttribute('data-social'));
+
+        // Заполняем модальное окно данными
+        document.getElementById('modal-title').textContent = title;
+        document.getElementById('modal-description').textContent = description;
+
+        // Галерея изображений
+        const gallery = document.getElementById('modal-gallery');
+        gallery.innerHTML = images.map(img => `<img src="${img}" alt="${title}">`).join('');
+
+        // Видео
+        const videoContainer = document.getElementById('modal-video');
+        videoContainer.innerHTML = `<iframe src="${video}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+
+        // Социальные сети
+        const socialLinks = document.getElementById('modal-social');
+        socialLinks.innerHTML = Object.entries(social)
+            .map(([platform, link]) => `<a href="${link}" target="_blank"><i class="fab fa-${platform}"></i></a>`)
+            .join('');
+
+        // Показываем модальное окно
+        modal.classList.add('active');
     });
 });
 
-// Закрытие деталей проекта
+// Закрытие модального окна
 document.querySelectorAll('.close-details').forEach(button => {
     button.addEventListener('click', () => {
-        const details = button.closest('.project-details');
-        details.classList.remove('active');
+        const modal = button.closest('.project-details');
+        modal.classList.remove('active');
     });
 });
 
 // Закрытие при клике вне блока
-document.querySelectorAll('.project-details').forEach(details => {
-    details.addEventListener('click', (e) => {
-        if (e.target === details) {
-            details.classList.remove('active');
-        }
-    });
+document.querySelector('.project-details').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) {
+        e.currentTarget.classList.remove('active');
+    }
 });

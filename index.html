@@ -68,66 +68,81 @@
       </section>
 
       <!-- Новая секция: 3D Projects -->
-      <section class="blender-projects">
-        <h2>3D Art & Animations</h2>
-        <p class="subtitle">
-          Explore my work in Blender - from modeling to animation
-        </p>
-        <div class="blender-grid">
-          <div class="blender-card">
-            <div class="blender-card-inner">
-              <div class="blender-card-front">
-                <img
-                  src="../cravcenco.github.io/resources/butterfly.png"
-                  alt="3D Project 1"
-                />
-              </div>
-              <div class="blender-card-back">
-                <h3>Project: glass butterfly</h3>
-                <p>
-                  A butterfly with a stained glass effect and animation created
-                  in Blender using Cycles rendering.
-                </p>
-                <button class="btn btn-primary">View Details</button>
-              </div>
+      <!-- Кнопки для открытия модалок -->
+<div class="blender-grid">
+    <!-- Проект 1 -->
+    <div class="blender-card">
+        <div class="blender-card-inner">
+            <div class="blender-card-front">
+                <img src="../cravcenco.github.io/resources/butterfly.png" alt="3D Project 1">
             </div>
-          </div>
-          <div class="blender-card">
-            <div class="blender-card-inner">
-              <div class="blender-card-front">
-                <img
-                  src="../cravcenco.github.io/resources/Scene 4.png"
-                  alt="3D Project 2"
-                />
-              </div>
-              <div class="blender-card-back">
-                <h3>Project: vouchers presentation</h3>
-                <p>
-                  An animated voucher for a yoga center’s Instagram profile in
-                  Blender.
-                </p>
-                <button class="btn btn-primary">View Details</button>
-              </div>
+            <div class="blender-card-back">
+                <h3>Project: Glass butterfly</h3>
+                <p>A butterfly with a stained glass effect and animation, created in Blender using Cycles rendering.</p>
+                <ul>
+                    <li><strong>Задача</strong>: Создать яркий и запоминающийся дизайн.</li>
+                    <li><strong>Решение</strong>: Минимализм + неоновые акценты.</li>
+                    <li><strong>Результат</strong>: Конверсия выросла на 25%.</li>
+                </ul>
+                <button class="btn btn-primary view-details"
+                        data-project="1"
+                        data-title="Glass butterfly"
+                        data-description="This project is a futuristic cityscape created in Blender. It features advanced lighting techniques and realistic textures."
+                        data-images='["../cravcenco.github.io/resources/butterfly.png", "../cravcenco.github.io/resources/butterfly.png"]'
+                        data-video="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        data-social='{"instagram": "https://instagram.com", "artstation": "https://artstation.com", "github": "https://github.com"}'>
+                    View Details
+                </button>
             </div>
-          </div>
         </div>
-      </section>
+    </div>
 
-      <!-- Детали проектов -->
-      <div class="project-details" id="project-details-1">
-        <div class="details-content">
-          <h3>Neon City</h3>
-          <p>
-            This project is a futuristic cityscape created in Blender. It
-            features advanced lighting techniques and realistic textures.
-          </p>
-          <div class="gallery">
-            <img src="https://via.placeholder.com/600x400" alt="Neon City 1" />
-            <img src="https://via.placeholder.com/600x400" alt="Neon City 2" />
-          </div>
-          <button class="btn btn-primary close-details">Close</button>
+    <!-- Проект 2 -->
+    <div class="blender-card">
+        <div class="blender-card-inner">
+            <div class="blender-card-front">
+                <img src="../cravcenco.github.io/resources/Scene 4.png" alt="3D Project 2">
+            </div>
+            <div class="blender-card-back">
+                <h3>Project: Vouchers</h3>
+                <p>An animated voucher for a yoga center’s Instagram profile in Blender.</p>
+                <ul>
+                    <li><strong>Задача</strong>: Создать яркий и запоминающийся дизайн.</li>
+                    <li><strong>Решение</strong>: Минимализм + неоновые акценты.</li>
+                    <li><strong>Результат</strong>: Конверсия выросла на 25%.</li>
+                </ul>
+                <button class="btn btn-primary view-details"
+                        data-project="2"
+                        data-title="Vouchers"
+                        data-description="This project features a fully rigged and animated character designed for a cyberpunk-themed game."
+                        data-images='["../cravcenco.github.io/resources/Scene 4.png", "../cravcenco.github.io/resources/Scene 4.png"]'
+                        data-video="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        data-social='{"instagram": "https://instagram.com", "artstation": "https://artstation.com", "github": "https://github.com"}'>
+                    View Details
+                </button>
+            </div>
         </div>
-      </div>
+    </div>
+</div>
+
+<!-- Модальное окно (шаблон) -->
+<div class="project-details">
+    <div class="details-content">
+        <h3 id="modal-title"></h3>
+        <p id="modal-description"></p>
+
+        <!-- Галерея изображений -->
+        <div class="gallery" id="modal-gallery"></div>
+
+        <!-- Видео -->
+        <div class="video-container" id="modal-video"></div>
+
+        <!-- Социальные сети -->
+        <div class="social-links" id="modal-social"></div>
+
+        <button class="btn btn-primary close-details">Close</button>
+    </div>
+</div>
 
       <!-- Футер -->
       <footer class="footer">
