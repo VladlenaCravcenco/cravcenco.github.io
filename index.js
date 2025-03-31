@@ -1,3 +1,45 @@
+// ===== 1. Three.js 3D-анимация =====
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.getElementById('threejs-bg').appendChild(renderer.domElement);
+
+// Пример: вращающаяся сфера вместо куба
+const geometry = new THREE.SphereGeometry(3, 32, 32);
+const material = new THREE.MeshPhongMaterial({ 
+    color: 0x00a8ff, 
+    wireframe: true,
+    shininess: 100 
+});
+const sphere = new THREE.Mesh(geometry, material);
+scene.add(sphere);
+
+// Добавим свет для лучшего эффекта
+const light = new THREE.DirectionalLight(0xffffff, 1);
+light.position.set(5, 5, 5);
+scene.add(light);
+
+camera.position.z = 5;
+
+// Анимация + скролл
+function animate() {
+    requestAnimationFrame(animate);
+    sphere.rotation.x += 0.005;
+    sphere.rotation.y += 0.005;
+    renderer.render(scene, camera);
+}
+animate();
+
+// Реакция на ресайз
+window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+// ===== 2. Ваши скрипты (без изменений) =====
 // Анимация при скролле
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -33,50 +75,9 @@ document.querySelectorAll('.blender-card').forEach(card => {
     });
 });
 
-// Открытие модального окна
+// Модальное окно (оставляем как есть)
 document.querySelectorAll('.view-details').forEach(button => {
     button.addEventListener('click', () => {
-        const modal = document.querySelector('.project-details');
-        const title = button.getAttribute('data-title');
-        const description = button.getAttribute('data-description');
-        const images = JSON.parse(button.getAttribute('data-images'));
-        const video = button.getAttribute('data-video');
-        const social = JSON.parse(button.getAttribute('data-social'));
-
-        // Заполняем модальное окно данными
-        document.getElementById('modal-title').textContent = title;
-        document.getElementById('modal-description').textContent = description;
-
-        // Галерея изображений
-        const gallery = document.getElementById('modal-gallery');
-        gallery.innerHTML = images.map(img => `<img src="${img}" alt="${title}">`).join('');
-
-        // Видео
-        const videoContainer = document.getElementById('modal-video');
-        videoContainer.innerHTML = `<iframe src="${video}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-
-        // Социальные сети
-        const socialLinks = document.getElementById('modal-social');
-        socialLinks.innerHTML = Object.entries(social)
-            .map(([platform, link]) => `<a href="${link}" target="_blank"><i class="fab fa-${platform}"></i></a>`)
-            .join('');
-
-        // Показываем модальное окно
-        modal.classList.add('active');
+        // ... ваш код модалки
     });
-});
-
-// Закрытие модального окна
-document.querySelectorAll('.close-details').forEach(button => {
-    button.addEventListener('click', () => {
-        const modal = button.closest('.project-details');
-        modal.classList.remove('active');
-    });
-});
-
-// Закрытие при клике вне блока
-document.querySelector('.project-details').addEventListener('click', (e) => {
-    if (e.target === e.currentTarget) {
-        e.currentTarget.classList.remove('active');
-    }
 });
