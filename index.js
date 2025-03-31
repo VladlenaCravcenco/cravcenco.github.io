@@ -54,3 +54,54 @@ window.addEventListener('resize', () => {
 
 // ===== 3. Ваши скрипты (оставляем без изменений) =====
 // ... (ваш код с IntersectionObserver, кнопками, модалками)
+// ===== Модальное окно =====
+document.querySelectorAll('.view-details').forEach(button => {
+    button.addEventListener('click', () => {
+        const modal = document.querySelector('.project-details');
+        const title = button.getAttribute('data-title');
+        const description = button.getAttribute('data-description');
+        const images = JSON.parse(button.getAttribute('data-images') || '[]');
+        const video = button.getAttribute('data-video') || '';
+        const social = JSON.parse(button.getAttribute('data-social') || {};
+
+        // Заполняем модалку данными
+        document.getElementById('modal-title').textContent = title;
+        document.getElementById('modal-description').textContent = description;
+
+        // Галерея изображений
+        const gallery = document.getElementById('modal-gallery');
+        gallery.innerHTML = images.map(img => 
+            `<img src="${img}" alt="${title}">`
+        ).join('');
+
+        // Видео (если есть)
+        const videoContainer = document.getElementById('modal-video');
+        videoContainer.innerHTML = video ? 
+            `<iframe src="${video}" allowfullscreen></iframe>` : 
+            '';
+
+        // Соцсети (иконки Font Awesome)
+        const socialLinks = document.getElementById('modal-social');
+        socialLinks.innerHTML = Object.entries(social)
+            .map(([platform, link]) => 
+                `<a href="${link}" target="_blank"><i class="fab fa-${platform}"></i></a>`
+            ).join('');
+
+        // Показываем модалку
+        modal.classList.add('active');
+    });
+});
+
+// Закрытие модалки
+document.querySelectorAll('.close-details').forEach(button => {
+    button.addEventListener('click', () => {
+        document.querySelector('.project-details').classList.remove('active');
+    });
+});
+
+// Закрытие при клике вне модалки
+document.querySelector('.project-details').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) {
+        e.currentTarget.classList.remove('active');
+    }
+});
